@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-12 text-right">
+    <button type="button" class="btn btn-outline-danger btn-sm" 
+      (click)="salir()" *ngIf="_cs.usuario.uid">
+      Salir
+    </button>
+  </div>
+  <div class="col-md-12 text-center" *ngIf="!_cs.usuario.uid">
+    <p>Ingrese con su cuenta favorita</p>
+    <button type="button" class="btn btn-outline-primary  btn-sm" (click)="ingresar('google')">Google</button>
+    <button type="button" class="btn btn-outline-info btn-sm" (click)="ingresar('facebook')">Facebook</button>
+  </div>
+  <p>
+    {{_cs.usuario |json}}
+  </p>
+</div>

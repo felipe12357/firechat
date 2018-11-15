@@ -1,0 +1,22 @@
+
+<h3>Fire Chat</h3>
+<hr>
+
+<div class="app-mensajes" id="app-mensajes">
+  <div *ngFor="let msn of _chatService.chats" [ngClass]="{'text-right':  msn.uid===_chatService.usuario.uid}">
+    <span class="badge badge-primary" 
+    [ngClass]="{' badge-primary': msn.uid===_chatService.usuario.uid,
+                'badge-success': msn.uid!==_chatService.usuario.uid}">
+      {{msn.nombre}}
+    </span>
+    <p> {{msn.mensaje}}</p>
+  </div>
+  <!-- <div class="text-right">
+      <span class="badge badge-success">Felipe</span>
+      <p> mensaje de preuba2</p>
+  </div> -->
+</div>
+<input type="text" name="mensaje"
+class="form-control" 
+placeholder="enviar Mensaje"
+[(ngModel)]="mensajeInput" (keyup.enter)="enviar_mensaje()">
